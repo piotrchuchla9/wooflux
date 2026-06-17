@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Live Product Filter — WooFlux
- * Plugin URI:        https://wooflux.com
+ * Plugin URI:        https://wooflux.vercel.app
  * Description:       Lightning-fast WooCommerce product filtering built on the WordPress Interactivity API. Zero jQuery. No conflicts.
  * Version:           1.0.0
  * Requires at least: 6.5
