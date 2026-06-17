@@ -4,3 +4,4 @@ freemius/
 blocks/*/build/
 *.log
 .DS_Store
+wooflux_plan.md
