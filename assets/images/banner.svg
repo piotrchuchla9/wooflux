@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1544 500" width="1544" height="500">
+  <defs>
+    <linearGradient id="bggrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0c29"/>
+      <stop offset="50%" style="stop-color:#1a1a4e"/>
+      <stop offset="100%" style="stop-color:#24243e"/>
+    </linearGradient>
+    <linearGradient id="pill" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="pillsoft" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c3aed" stop-opacity="0.35"/>
+      <stop offset="100%" style="stop-color:#4f46e5" stop-opacity="0.35"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1544" height="500" fill="url(#bggrad)"/>
+
+  <!-- Subtle grid dots -->
+  <pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+    <circle cx="20" cy="20" r="1.5" fill="#ffffff" opacity="0.06"/>
+  </pattern>
+  <rect width="1544" height="500" fill="url(#dots)"/>
+
+  <!-- Left side — filter bars decoration -->
+  <rect x="80" y="140" width="180" height="22" rx="11" fill="url(#pill)" opacity="0.9"/>
+  <rect x="80" y="178" width="132" height="22" rx="11" fill="url(#pillsoft)"/>
+  <rect x="80" y="216" width="84" height="22" rx="11" fill="url(#pillsoft)" opacity="0.6"/>
+
+  <!-- Small label above bars -->
+  <text x="80" y="126" font-family="system-ui, -apple-system, sans-serif" font-size="18" fill="#a5b4fc" font-weight="500" letter-spacing="2">CATEGORIES</text>
+
+  <!-- Divider line -->
+  <line x1="320" y1="100" x2="320" y2="400" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+
+  <!-- Main text -->
+  <text x="390" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="86" font-weight="800" fill="#f8fafc" letter-spacing="-2">WooFlux</text>
+  <text x="392" y="268" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="400" fill="#a5b4fc" letter-spacing="0.5">Live Product Filter for WooCommerce</text>
+
+  <!-- Badges row -->
+  <rect x="392" y="310" width="188" height="42" rx="21" fill="url(#pill)" opacity="0.9"/>
+  <text x="486" y="337" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">Zero jQuery</text>
+
+  <rect x="596" y="310" width="260" height="42" rx="21" fill="url(#pillsoft)"/>
+  <text x="726" y="337" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#c4b5fd" text-anchor="middle" letter-spacing="0.5">Interactivity API Native</text>
+
+  <rect x="872" y="310" width="188" height="42" rx="21" fill="url(#pillsoft)" opacity="0.7"/>
+  <text x="966" y="337" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#c4b5fd" text-anchor="middle" letter-spacing="0.5">FSE Compatible</text>
+
+  <!-- Right side — product card mockups -->
+  <rect x="1180" y="100" width="160" height="200" rx="12" fill="#1e1b4b" opacity="0.8"/>
+  <rect x="1190" y="110" width="140" height="100" rx="8" fill="#312e81" opacity="0.6"/>
+  <rect x="1190" y="220" width="100" height="12" rx="6" fill="#6366f1" opacity="0.7"/>
+  <rect x="1190" y="240" width="70" height="12" rx="6" fill="#4f46e5" opacity="0.5"/>
+  <rect x="1190" y="265" width="80" height="26" rx="13" fill="url(#pill)" opacity="0.8"/>
+
+  <rect x="1356" y="130" width="148" height="185" rx="12" fill="#1e1b4b" opacity="0.6"/>
+  <rect x="1366" y="140" width="128" height="90" rx="8" fill="#312e81" opacity="0.5"/>
+  <rect x="1366" y="240" width="90" height="12" rx="6" fill="#6366f1" opacity="0.5"/>
+  <rect x="1366" y="258" width="60" height="12" rx="6" fill="#4f46e5" opacity="0.4"/>
+</svg>

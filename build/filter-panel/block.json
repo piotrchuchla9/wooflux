@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "wooflux/filter-panel",
+  "version": "1.0.0",
+  "title": "WooFlux Filter Panel",
+  "category": "woocommerce",
+  "description": "Interactive product filter panel for WooCommerce built on the Interactivity API.",
+  "keywords": [
+    "woocommerce",
+    "filter",
+    "products",
+    "shop"
+  ],
+  "textdomain": "wooflux",
+  "supports": {
+    "html": false,
+    "interactivity": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "parentCategory": {
+      "type": "integer",
+      "default": 0
+    },
+    "showCategories": {
+      "type": "boolean",
+      "default": true
+    },
+    "showPrice": {
+      "type": "boolean",
+      "default": true
+    },
+    "showOnSale": {
+      "type": "boolean",
+      "default": true
+    },
+    "showInStock": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "viewScriptModule": "file:./view.js",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}

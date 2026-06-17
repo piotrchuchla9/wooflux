@@ -1,0 +1,99 @@
+.wooflux-filter-panel {
+  --wooflux-accent:        var(--wp--preset--color--primary, #0073aa);
+  --wooflux-text:          var(--wp--preset--color--foreground, #1e1e1e);
+  --wooflux-border:        #ddd;
+  --wooflux-border-radius: 4px;
+  --wooflux-spacing:       1rem;
+}
+
+.wooflux-filter-panel {
+  font-size: 0.9rem;
+}
+
+.wooflux-filter-group {
+  margin-bottom: var(--wooflux-spacing);
+  padding-bottom: var(--wooflux-spacing);
+  border-bottom: 1px solid var(--wooflux-border);
+}
+
+.wooflux-filter-group:last-child {
+  border-bottom: none;
+}
+
+.wooflux-filter-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.5rem;
+  color: var(--wooflux-text);
+}
+
+.wooflux-categories {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wooflux-categories li {
+  margin-bottom: 0.375rem;
+}
+
+.wooflux-categories label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.wooflux-count {
+  color: #767676;
+  font-size: 0.8em;
+}
+
+.wooflux-price-range {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wooflux-price-range input[type="number"] {
+  width: 80px;
+  padding: 0.375rem 0.5rem;
+  border: 1px solid var(--wooflux-border);
+  border-radius: var(--wooflux-border-radius);
+  font-size: 0.875rem;
+}
+
+.wooflux-reset {
+  width: 100%;
+  padding: 0.5rem;
+  background: transparent;
+  border: 1px solid var(--wooflux-accent);
+  border-radius: var(--wooflux-border-radius);
+  color: var(--wooflux-accent);
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background 0.15s, color 0.15s;
+}
+
+.wooflux-reset:hover:not(:disabled) {
+  background: var(--wooflux-accent);
+  color: #fff;
+}
+
+.wooflux-reset:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.wooflux-pro-badge {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  background: #f0a500;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 3px;
+  text-transform: uppercase;
+}

@@ -1,0 +1,105 @@
+.wooflux-product-grid {
+  --wooflux-columns: 3;
+  position: relative;
+}
+
+.wooflux-products-container {
+  display: grid;
+  grid-template-columns: repeat(var(--wooflux-columns), 1fr);
+  gap: 1.5rem;
+}
+
+.wooflux-loading {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.wooflux-loading[hidden] {
+  display: none;
+}
+
+.wooflux-spinner {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid rgba(0, 115, 170, 0.2);
+  border-top-color: #0073aa;
+  border-radius: 50%;
+  animation: wooflux-spin 0.7s linear infinite;
+}
+
+@keyframes wooflux-spin {
+  to { transform: rotate(360deg); }
+}
+
+.wooflux-results-count {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: #767676;
+}
+
+.wooflux-no-products {
+  padding: 2rem;
+  text-align: center;
+  color: #767676;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Product card (matches WooCommerce default markup expectations) */
+.wooflux-product-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.wooflux-product-card .wooflux-product-image {
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.wooflux-product-card .wooflux-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s;
+}
+
+.wooflux-product-card:hover .wooflux-product-image img {
+  transform: scale(1.03);
+}
+
+.wooflux-product-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+}
+
+.wooflux-product-price {
+  color: #0073aa;
+  font-weight: 700;
+}
+
+.wooflux-add-to-cart {
+  margin-top: auto;
+  padding-top: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .wooflux-products-container {
+    --wooflux-columns: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .wooflux-products-container {
+    --wooflux-columns: 1;
+  }
+}

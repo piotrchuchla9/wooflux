@@ -1,0 +1,6 @@
+node_modules/
+vendor/
+freemius/
+blocks/*/build/
+*.log
+.DS_Store

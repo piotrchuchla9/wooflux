@@ -1,0 +1,23 @@
+{
+  "name": "wooflux",
+  "version": "1.0.0",
+  "description": "Lightning-fast WooCommerce product filtering built on the WordPress Interactivity API.",
+  "license": "GPL-2.0-or-later",
+  "scripts": {
+    "build": "WP_EXPERIMENTAL_MODULES=true wp-scripts build",
+    "start": "WP_EXPERIMENTAL_MODULES=true wp-scripts start",
+    "test:js": "wp-scripts test-unit-js",
+    "test:e2e": "wp-scripts test-playwright",
+    "lint:js": "wp-scripts lint-js",
+    "lint:css": "wp-scripts lint-style",
+    "lint:php": "composer run-script lint",
+    "packages-update": "wp-scripts packages-update",
+    "env:start": "wp-env start",
+    "env:stop":  "wp-env stop",
+    "env:clean": "wp-env destroy"
+  },
+"devDependencies": {
+    "@wordpress/env": "^10.39.0",
+    "@wordpress/scripts": "^30.0.0"
+  }
+}

@@ -1,0 +1,324 @@
+/* ============================================================
+   WooFlux Product Grid
+   All colors via CSS custom properties injected by PHP.
+   ============================================================ */
+
+.wooflux-product-grid {
+  --wf-radius:  8px;
+  --wf-columns: var(--wooflux-columns, 3);
+
+  position: relative;
+  background: var(--wf-bg);
+  border-radius: 10px;
+}
+
+/* ── Loading overlay ──────────────────────────────────────── */
+
+.wooflux-loading {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--wf-surface) 85%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: var(--wf-radius);
+  backdrop-filter: blur(2px);
+}
+
+.wooflux-loading[hidden] {
+  display: none;
+}
+
+.wooflux-spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid color-mix(in srgb, var(--wf-accent) 20%, transparent);
+  border-top-color: var(--wf-accent);
+  border-radius: 50%;
+  animation: wooflux-spin 0.65s linear infinite;
+}
+
+@keyframes wooflux-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Products grid ────────────────────────────────────────── */
+
+.wooflux-products-container {
+  display: grid;
+  grid-template-columns: repeat(var(--wf-columns), 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .wooflux-products-container {
+    --wf-columns: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .wooflux-products-container {
+    --wf-columns: 1;
+  }
+}
+
+/* ── Product card ─────────────────────────────────────────── */
+
+.wooflux-product-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--wf-surface);
+  border: 1px solid var(--wf-border);
+  border-radius: var(--wf-radius);
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.wooflux-product-card:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.13);
+  transform: translateY(-2px);
+}
+
+.wooflux-product-card .wooflux-product-image {
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--wf-surface) 60%, var(--wf-border));
+}
+
+.wooflux-product-card .wooflux-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.wooflux-product-card:hover .wooflux-product-image img {
+  transform: scale(1.05);
+}
+
+.wooflux-product-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+  line-height: 1.3;
+}
+
+.wooflux-product-title a {
+  text-decoration: none;
+  color: var(--wf-text);
+}
+
+.wooflux-product-title a:hover {
+  color: var(--wf-accent);
+}
+
+/* Card body padding */
+.wooflux-product-card .wooflux-product-title,
+.wooflux-product-card .wooflux-product-price,
+.wooflux-product-card .wooflux-add-to-cart {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.wooflux-product-card .wooflux-product-title {
+  padding-top: 0.875rem;
+}
+
+.wooflux-product-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  font-weight: 700;
+  color: var(--wf-accent);
+  font-size: 1rem;
+}
+
+.wooflux-product-price ins {
+  order: -1;
+  text-decoration: none;
+}
+
+.wooflux-product-price del {
+  order: 0;
+  color: var(--wf-muted);
+  font-weight: 400;
+  font-size: 0.875em;
+}
+
+.wooflux-add-to-cart {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  padding-bottom: 1rem;
+}
+
+.wooflux-add-to-cart .button,
+.wooflux-add-to-cart .add_to_cart_button {
+  display: block;
+  width: 100%;
+  padding: 0.55rem 1rem;
+  background: var(--wf-accent);
+  color: #fff;
+  border: none;
+  border-radius: calc(var(--wf-radius) - 2px);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.wooflux-add-to-cart .button:hover,
+.wooflux-add-to-cart .add_to_cart_button:hover {
+  opacity: 0.88;
+  color: #fff;
+}
+
+/* ── Results count ────────────────────────────────────────── */
+
+.wooflux-results-count {
+  margin-top: 1.25rem;
+  font-size: 0.875rem;
+  color: var(--wf-muted);
+}
+
+/* ── Pagination ───────────────────────────────────────────── */
+
+.wooflux-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.wooflux-pagination[hidden],
+.wooflux-pagination.is-hidden {
+  display: none;
+}
+
+.wooflux-page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1.5px solid var(--wf-border);
+  border-radius: var(--wf-radius);
+  background: var(--wf-surface);
+  color: var(--wf-accent);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.wooflux-page-btn:hover:not(:disabled) {
+  background: var(--wf-accent);
+  border-color: var(--wf-accent);
+  color: #fff;
+}
+
+.wooflux-page-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.wooflux-page-info {
+  font-size: 0.875rem;
+  color: var(--wf-muted);
+  min-width: 4rem;
+  text-align: center;
+}
+
+/* ── No products ──────────────────────────────────────────── */
+
+.wooflux-no-products {
+  padding: 3rem 2rem;
+  text-align: center;
+  color: var(--wf-muted);
+  background: var(--wf-surface);
+  border: 1px dashed var(--wf-border);
+  border-radius: var(--wf-radius);
+  grid-column: 1 / -1;
+}
+
+/* ============================================================
+   Layout: List
+   ============================================================ */
+
+.wooflux-product-grid.is-layout-list .wooflux-products-container {
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.wooflux-product-grid.is-layout-list .wooflux-product-card {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  grid-template-rows: auto auto 1fr;
+  min-height: 120px;
+}
+
+.wooflux-product-grid.is-layout-list .wooflux-product-card .wooflux-product-image {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  aspect-ratio: auto;
+  height: 100%;
+}
+
+.wooflux-product-grid.is-layout-list .wooflux-product-card .wooflux-product-title {
+  grid-column: 2;
+  grid-row: 1;
+  padding: 1rem 1rem 0.25rem;
+}
+
+.wooflux-product-grid.is-layout-list .wooflux-product-card .wooflux-product-price {
+  grid-column: 2;
+  grid-row: 2;
+  padding: 0 1rem;
+}
+
+.wooflux-product-grid.is-layout-list .wooflux-product-card .wooflux-add-to-cart {
+  grid-column: 2;
+  grid-row: 3;
+  padding: 0.75rem 1rem 1rem;
+  margin-top: 0;
+  align-self: end;
+}
+
+.wooflux-product-grid.is-layout-list .wooflux-add-to-cart .button,
+.wooflux-product-grid.is-layout-list .wooflux-add-to-cart .add_to_cart_button {
+  width: auto;
+  display: inline-block;
+}
+
+@media (max-width: 480px) {
+  .wooflux-product-grid.is-layout-list .wooflux-product-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px auto auto auto;
+  }
+
+  .wooflux-product-grid.is-layout-list .wooflux-product-card .wooflux-product-image {
+    grid-column: 1;
+    grid-row: 1;
+    height: 200px;
+  }
+
+  .wooflux-product-grid.is-layout-list .wooflux-product-card .wooflux-product-title {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .wooflux-product-grid.is-layout-list .wooflux-product-card .wooflux-product-price {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .wooflux-product-grid.is-layout-list .wooflux-product-card .wooflux-add-to-cart {
+    grid-column: 1;
+    grid-row: 4;
+  }
+}

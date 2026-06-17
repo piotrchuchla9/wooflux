@@ -1,0 +1,45 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "wooflux/product-grid",
+  "version": "1.0.0",
+  "title": "WooFlux Product Grid",
+  "category": "woocommerce",
+  "description": "Reactive product grid that updates when WooFlux filters change.",
+  "keywords": [
+    "woocommerce",
+    "products",
+    "grid",
+    "shop"
+  ],
+  "textdomain": "wooflux",
+  "supports": {
+    "html": false,
+    "interactivity": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "columns": {
+      "type": "integer",
+      "default": 3
+    },
+    "perPage": {
+      "type": "integer",
+      "default": 0
+    },
+    "layout": {
+      "type": "string",
+      "default": "grid",
+      "enum": [
+        "grid",
+        "list"
+      ]
+    }
+  },
+  "viewScriptModule": "file:./view.js",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}
