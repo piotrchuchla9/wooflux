@@ -9,14 +9,14 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$columns     = (int) ( $attributes['columns'] ?? 3 );
-$total_pages = (int) $products['pages'];
-$show_pag    = $total_pages > 1;
+$wooflux_columns     = (int) ( $attributes['columns'] ?? 3 );
+$wooflux_total_pages = (int) $products['pages'];
+$wooflux_show_pag    = $wooflux_total_pages > 1;
 ?>
 <div
 	<?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	data-wp-interactive="wooflux/filters"
-	style="--wooflux-columns: <?php echo esc_attr( $columns ); ?>;"
+	style="--wooflux-columns: <?php echo esc_attr( $wooflux_columns ); ?>;"
 >
 	<div
 		class="wooflux-loading"
@@ -44,7 +44,7 @@ $show_pag    = $total_pages > 1;
 
 	<nav
 		class="wooflux-pagination"
-		style="<?php echo $show_pag ? '' : 'display:none'; ?>"
+		style="<?php echo $wooflux_show_pag ? '' : 'display:none'; ?>"
 		aria-label="<?php esc_attr_e( 'Products pagination', 'live-product-filter-wooflux' ); ?>"
 	>
 		<button
@@ -57,7 +57,7 @@ $show_pag    = $total_pages > 1;
 		<span class="wooflux-page-info">
 			<span class="wooflux-page-current">1</span>
 			/
-			<span class="wooflux-page-total"><?php echo absint( $total_pages ); ?></span>
+			<span class="wooflux-page-total"><?php echo absint( $wooflux_total_pages ); ?></span>
 		</span>
 
 		<button

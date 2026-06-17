@@ -7,7 +7,9 @@
 
 defined( 'WP_UNINSTALL_PLUGIN' ) || exit;
 
-$options = array(
+global $wpdb;
+
+$wooflux_options = array(
 	'wooflux_version',
 	'wooflux_cache_ttl',
 	'wooflux_license_key',
@@ -19,8 +21,8 @@ $options = array(
 	'wooflux_style',
 );
 
-foreach ( $options as $option ) {
-	delete_option( $option );
+foreach ( $wooflux_options as $wooflux_option ) {
+	delete_option( $wooflux_option );
 }
 
 // Delete all color customization options (wooflux_color_*).
@@ -32,7 +34,6 @@ $wpdb->query( // phpcs:ignore WordPress.DB.DirectDatabaseQuery
 );
 
 // Delete all WooFlux transients.
-global $wpdb;
 $wpdb->query( // phpcs:ignore WordPress.DB.DirectDatabaseQuery
 	$wpdb->prepare(
 		"DELETE FROM {$wpdb->options} WHERE option_name LIKE %s OR option_name LIKE %s",

@@ -13,24 +13,24 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-<div <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> data-wp-interactive="wooflux/filters">
+<div <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> data-wp-interactive="wooflux/filters" data-wp-init="callbacks.syncFromUrl">
 
 	<?php if ( ! empty( $categories ) && ( $attributes['showCategories'] ?? true ) ) : ?>
 	<div class="wooflux-filter-group">
 		<h3 class="wooflux-filter-title"><?php esc_html_e( 'Categories', 'live-product-filter-wooflux' ); ?></h3>
 		<ul class="wooflux-categories">
-			<?php foreach ( $categories as $category_item ) : ?>
-				<?php $is_checked = in_array( (int) $category_item->term_id, $initial_state['categories'], true ); ?>
+			<?php foreach ( $categories as $wooflux_category_item ) : ?>
+				<?php $wooflux_is_checked = in_array( (int) $wooflux_category_item->term_id, $initial_state['categories'], true ); ?>
 			<li>
 				<label>
 					<input
 						type="checkbox"
-						value="<?php echo esc_attr( $category_item->term_id ); ?>"
-						<?php checked( $is_checked ); ?>
+						value="<?php echo esc_attr( $wooflux_category_item->term_id ); ?>"
+						<?php checked( $wooflux_is_checked ); ?>
 						data-wp-on--change="actions.toggleCategory"
 					/>
-					<span class="wooflux-cat-name"><?php echo esc_html( $category_item->name ); ?></span>
-					<span class="wooflux-count">(<?php echo (int) $category_item->count; ?>)</span>
+					<span class="wooflux-cat-name"><?php echo esc_html( $wooflux_category_item->name ); ?></span>
+					<span class="wooflux-count">(<?php echo (int) $wooflux_category_item->count; ?>)</span>
 				</label>
 			</li>
 			<?php endforeach; ?>

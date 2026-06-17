@@ -24,6 +24,16 @@ const { state, actions } = store("wooflux/filters", {
     },
   },
 
+  callbacks: {
+    // WP Interactivity API does not reliably deep-merge boolean values from
+    // server state into nested JS store objects. Read URL params directly.
+    syncFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      state.filters.onSale  = params.has("wf_sale");
+      state.filters.inStock = params.has("wf_stock");
+    },
+  },
+
   actions: {
     toggleCategory() {
       actions._scheduleRefetch();

@@ -76,7 +76,6 @@ class WooFlux {
 	 * Registers all WordPress action and filter hooks.
 	 */
 	private function init_hooks(): void {
-		add_action( 'init', array( $this, 'load_textdomain' ) );
 		add_action( 'init', array( new WooFlux_Blocks(), 'register' ) );
 		add_action( 'rest_api_init', array( new WooFlux_REST(), 'register_routes' ) );
 		add_action( 'admin_menu', array( new WooFlux_Settings(), 'add_menu' ) );
@@ -99,17 +98,6 @@ class WooFlux {
 					);
 				}
 			}
-		);
-	}
-
-	/**
-	 * Loads the plugin text domain for translations.
-	 */
-	public function load_textdomain(): void {
-		load_plugin_textdomain(
-			'live-product-filter-wooflux',
-			false,
-			dirname( plugin_basename( WOOFLUX_FILE ) ) . '/languages'
 		);
 	}
 
